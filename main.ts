@@ -20,7 +20,11 @@ input.onButtonPressed(Button.B, function () {
 })
 let list: number[] = []
 let Question_not_answered = false
+let MelodyAnswers: number[] = []
 let Melodies2: string[][] = []
+let Melody_5: string[] = []
+let Melody_4: string[] = []
+let Melody_3: string[] = []
 let Melody_2: string[] = []
 let Melody_1: string[] = []
 let RingToneOn = false
@@ -50,7 +54,7 @@ basic.forever(function () {
             }
             basic.showString("DIY Time!")
             Tone = 130
-            Timer = 720
+            Timer = 300
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -75,13 +79,19 @@ basic.forever(function () {
                 }
             }
             RingToneOn = true
-            Melody_1 = ["C5 B A G F E D C ", "- - - - - - - - ", "- - - - - - - - "]
-            Melody_2 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
-            Melodies2 = [Melody_1, Melody_2]
-            for (let index = 0; index <= 1; index++) {
-                for (let index = 0; index <= 2; index++) {
-                    music.playMelody(Melodies2[0][0], 120)
+            Melody_1 = ["C5 B A G F E D C ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melody_2 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melody_3 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melody_4 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melody_5 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melodies2 = [Melody_1, Melody_2, Melody_3, Melody_4, Melody_5]
+            MelodyAnswers = [0, 1, 0, 0, 1]
+            Score = 0
+            for (let index1 = 0; index1 <= 5; index1++) {
+                for (let index2 = 0; index2 <= 4; index2++) {
+                    music.playMelody(Melodies2[index1][index2], 120)
                 }
+                Question_not_answered = true
                 while (Question_not_answered) {
                     if (input.buttonIsPressed(Button.A)) {
                         Question_not_answered = false
@@ -100,6 +110,8 @@ basic.forever(function () {
                             basic.showIcon(IconNames.No)
                         }
                     }
+                    basic.showString("Score")
+                    basic.showNumber(Score)
                 }
             }
         } else if (Dice_Role == 3) {
@@ -113,7 +125,7 @@ basic.forever(function () {
             }
             basic.showString("DIY")
             Tone = 130
-            Timer = 360
+            Timer = 180
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -138,7 +150,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 720
+            Timer = 600
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
