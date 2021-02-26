@@ -18,6 +18,8 @@ input.onButtonPressed(Button.B, function () {
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     control.reset()
 })
+let Question_not_answered = false
+let list: number[] = []
 let RingToneOn = false
 let Timer = 0
 let Tone = 0
@@ -202,6 +204,23 @@ basic.forever(function () {
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
+                }
+            }
+            Current_Question = 1
+            list = [1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0]
+            for (let index = 0; index <= list.length; index++) {
+                basic.showNumber(Current_Question)
+                Current_Question += 1
+                Question_not_answered = true
+                while (Question_not_answered) {
+                    if (input.buttonIsPressed(Button.A)) {
+                        Question_not_answered = false
+                        if (list[0]) {
+                        	
+                        }
+                    } else if (input.buttonIsPressed(Button.B)) {
+                        Question_not_answered = false
+                    }
                 }
             }
             basic.clearScreen()
