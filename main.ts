@@ -1,3 +1,6 @@
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    control.reset()
+})
 input.onButtonPressed(Button.A, function () {
     soundExpression.giggle.play()
     basic.showIcon(IconNames.Heart)
@@ -15,11 +18,11 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
 	
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    control.reset()
-})
-let Question_not_answered = false
 let list: number[] = []
+let Question_not_answered = false
+let Melodies2: string[][] = []
+let Melody_2: string[] = []
+let Melody_1: string[] = []
 let RingToneOn = false
 let Timer = 0
 let Tone = 0
@@ -72,6 +75,33 @@ basic.forever(function () {
                 }
             }
             RingToneOn = true
+            Melody_1 = ["C5 B A G F E D C ", "- - - - - - - - ", "- - - - - - - - "]
+            Melody_2 = ["- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
+            Melodies2 = [Melody_1, Melody_2]
+            for (let index = 0; index <= 1; index++) {
+                for (let index = 0; index <= 2; index++) {
+                    music.playMelody(Melodies2[0][0], 120)
+                }
+                while (Question_not_answered) {
+                    if (input.buttonIsPressed(Button.A)) {
+                        Question_not_answered = false
+                        if (!(list[Current_Question])) {
+                            Score += 1
+                            basic.showIcon(IconNames.Yes)
+                        } else {
+                            basic.showIcon(IconNames.No)
+                        }
+                    } else if (input.buttonIsPressed(Button.B)) {
+                        Question_not_answered = false
+                        if (list[Current_Question]) {
+                            Score += 1
+                            basic.showIcon(IconNames.Yes)
+                        } else {
+                            basic.showIcon(IconNames.No)
+                        }
+                    }
+                }
+            }
         } else if (Dice_Role == 3) {
             Dice_rolled = false
             basic.showString("Paper planes")
@@ -197,7 +227,8 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 1) {
+        } else if (Dice_Role == 8) {
+            // Quiz answering done
             Dice_rolled = false
             basic.showString("Quiz time!")
             Quiz_answered = false
@@ -208,23 +239,34 @@ basic.forever(function () {
             }
             Current_Question = 1
             list = [1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0]
-            for (let index = 0; index <= list.length; index++) {
-                basic.showNumber(Current_Question)
-                Current_Question += 1
+            for (let index = 0; index <= list.length - 1; index++) {
+                Score = 0
                 Question_not_answered = true
+                basic.showNumber(Current_Question + 1)
                 while (Question_not_answered) {
                     if (input.buttonIsPressed(Button.A)) {
                         Question_not_answered = false
-                        if (list[0]) {
-                        	
+                        if (!(list[Current_Question])) {
+                            Score += 1
+                            basic.showIcon(IconNames.Yes)
+                        } else {
+                            basic.showIcon(IconNames.No)
                         }
                     } else if (input.buttonIsPressed(Button.B)) {
                         Question_not_answered = false
+                        if (list[Current_Question]) {
+                            Score += 1
+                            basic.showIcon(IconNames.Yes)
+                        } else {
+                            basic.showIcon(IconNames.No)
+                        }
                     }
                 }
+                Current_Question += 1
             }
             basic.clearScreen()
-            basic.showString("Times Up")
+            basic.showString("Score:")
+            basic.showNumber(Score)
         }
     }
 })
