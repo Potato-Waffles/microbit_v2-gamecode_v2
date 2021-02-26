@@ -131,7 +131,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 360
+            Timer = 120
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -155,7 +155,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 360
+            Timer = 180
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -180,7 +180,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 360
+            Timer = 120
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -192,6 +192,17 @@ basic.forever(function () {
                 basic.pause(1000)
                 Tone += 1
                 music.playTone(Tone, music.beat(BeatFraction.Whole))
+            }
+            basic.clearScreen()
+            basic.showString("Times Up")
+        } else if (Dice_Role == 1) {
+            Dice_rolled = false
+            basic.showString("Quiz time!")
+            Quiz_answered = false
+            while (!(Quiz_answered)) {
+                if (input.buttonIsPressed(Button.B)) {
+                    Quiz_answered = true
+                }
             }
             basic.clearScreen()
             basic.showString("Times Up")
