@@ -41,7 +41,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 480
-            for (let index = 0; index <= Timer / 5 - 2; index++) {
+            for (let index = 0; index <= Timer / 5 - 3; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -67,7 +67,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 180
-            for (let index3 = 0; index3 <= Timer / 5 - 2; index3++) {
+            for (let index3 = 0; index3 <= Timer / 5 - 3; index3++) {
                 basic.showString("" + (Timer - index3 * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -93,7 +93,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 300
-            for (let index5 = 0; index5 <= Timer / 5 - 2; index5++) {
+            for (let index5 = 0; index5 <= Timer / 5 - 3; index5++) {
                 basic.showString("" + (Timer - index5 * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -119,7 +119,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 240
-            for (let index7 = 0; index7 <= Timer / 5 - 2; index7++) {
+            for (let index7 = 0; index7 <= Timer / 5 - 3; index7++) {
                 basic.showString("" + (Timer - index7 * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -145,7 +145,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 240
-            for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
+            for (let index9 = 0; index9 <= Timer / 5 - 3; index9++) {
                 basic.showString("" + (Timer - index9 * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -171,7 +171,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 120
-            for (let index11 = 0; index11 <= Timer / 5 - 2; index11++) {
+            for (let index11 = 0; index11 <= Timer / 5 - 3; index11++) {
                 basic.showString("" + (Timer - index11 * 5))
                 basic.pause(5000)
                 Tone += 1
@@ -238,7 +238,7 @@ basic.forever(function () {
             basic.pause(100)
             Tone = 130
             Timer = 180
-            for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
+            for (let index9 = 0; index9 <= Timer / 5 - 3; index9++) {
                 basic.showString("" + (Timer - index9 * 5))
                 basic.pause(5000)
                 Tone += 1
