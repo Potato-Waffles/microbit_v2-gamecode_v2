@@ -1,3 +1,6 @@
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    control.reset()
+})
 input.onButtonPressed(Button.AB, function () {
     soundExpression.giggle.play()
     basic.showIcon(IconNames.Heart)
@@ -9,14 +12,10 @@ input.onButtonPressed(Button.AB, function () {
     basic.clearScreen()
     basic.pause(250)
 })
-let list: number[] = []
-let Current_Question = 0
 let Question_not_answered = false
 let Score = 0
-let MelodyAnswers: boolean[] = []
-let Melodies2: string[][] = []
-let Melody_1: string[] = []
-let RingToneOn = false
+let list: number[] = []
+let Current_Question = 0
 let Timer = 0
 let Tone = 0
 let Dice_rolled = false
@@ -41,7 +40,7 @@ basic.forever(function () {
             }
             basic.showString("DIY Time!")
             Tone = 130
-            Timer = 300
+            Timer = 480
             for (let index = 0; index <= Timer / 5 - 2; index++) {
                 basic.showString("" + (Timer - index * 5))
                 basic.pause(5000)
@@ -57,23 +56,6 @@ basic.forever(function () {
             basic.clearScreen()
             basic.showString("Times Up!")
         } else if (Dice_Role == 2) {
-            Dice_rolled = false
-            basic.showString("Ring tones!")
-            Quiz_answered = false
-            while (!(Quiz_answered)) {
-                if (input.buttonIsPressed(Button.B)) {
-                    Quiz_answered = true
-                }
-            }
-            RingToneOn = true
-            Melody_1 = ["C5 B A G F E D C ", "- - - - - - - - ", "- - - - - - - - ", "- - - - - - - - "]
-            Melodies2 = [Melody_1]
-            MelodyAnswers = [false]
-            Score = 0
-            for (let index1 = 0; index1 <= 2; index1++) {
-                Question_not_answered = true
-            }
-        } else if (Dice_Role == 3) {
             Dice_rolled = false
             basic.showString("Paper planes")
             Quiz_answered = false
@@ -99,7 +81,7 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 4) {
+        } else if (Dice_Role == 3) {
             Dice_rolled = false
             basic.showString("Safe storage")
             Quiz_answered = false
@@ -109,7 +91,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 600
+            Timer = 300
             for (let index5 = 0; index5 <= Timer / 5 - 2; index5++) {
                 basic.showString("" + (Timer - index5 * 5))
                 basic.pause(5000)
@@ -124,7 +106,7 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 5) {
+        } else if (Dice_Role == 4) {
             Dice_rolled = false
             basic.showString("Tower")
             Quiz_answered = false
@@ -134,7 +116,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 120
+            Timer = 240
             for (let index7 = 0; index7 <= Timer / 5 - 2; index7++) {
                 basic.showString("" + (Timer - index7 * 5))
                 basic.pause(5000)
@@ -149,7 +131,7 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 6) {
+        } else if (Dice_Role == 5) {
             Dice_rolled = false
             basic.showString("Wine count")
             while (!(Quiz_answered)) {
@@ -158,7 +140,7 @@ basic.forever(function () {
                 }
             }
             Tone = 130
-            Timer = 180
+            Timer = 240
             for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
                 basic.showString("" + (Timer - index9 * 5))
                 basic.pause(5000)
@@ -173,9 +155,9 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 7) {
+        } else if (Dice_Role == 6) {
             Dice_rolled = false
-            basic.showString("Most shoes")
+            basic.showString("colored objects")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
@@ -198,7 +180,7 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 8) {
+        } else if (Dice_Role == 7) {
             // Quiz answering done
             Dice_rolled = false
             basic.showString("Quiz time!")
@@ -238,6 +220,40 @@ basic.forever(function () {
             basic.clearScreen()
             basic.showString("Score:")
             basic.showNumber(Score)
+        } else if (Dice_Role == 7) {
+            Dice_rolled = false
+            basic.showString("Apples")
+            Quiz_answered = false
+            while (!(Quiz_answered)) {
+                if (input.buttonIsPressed(Button.B)) {
+                    Quiz_answered = true
+                }
+            }
+            Tone = 130
+            Timer = 180
+            for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
+                basic.showString("" + (Timer - index9 * 5))
+                basic.pause(5000)
+                Tone += 1
+                music.playTone(Tone, music.beat(BeatFraction.Whole))
+            }
+            for (let index10 = 0; index10 <= 10; index10++) {
+                basic.showString("" + (10 - index10))
+                basic.pause(1000)
+                Tone += 1
+                music.playTone(Tone, music.beat(BeatFraction.Whole))
+            }
+            basic.clearScreen()
+            basic.showString("Times Up")
+        } else if (Dice_Role == 8) {
+            Dice_rolled = false
+            basic.showString("Random sentence")
+            Quiz_answered = false
+            while (!(Quiz_answered)) {
+                if (input.buttonIsPressed(Button.B)) {
+                    Quiz_answered = true
+                }
+            }
         }
     }
 })
