@@ -31,14 +31,14 @@ basic.forever(function () {
     if (Dice_rolled) {
         if (Dice_Role == 1) {
             Dice_rolled = false
-            basic.showString("Pizza!")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
-            basic.showString("DIY Time!")
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 480
             for (let index = 0; index <= Timer / 5 - 2; index++) {
@@ -57,14 +57,14 @@ basic.forever(function () {
             basic.showString("Times Up!")
         } else if (Dice_Role == 2) {
             Dice_rolled = false
-            basic.showString("Paper planes")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
-            basic.showString("DIY")
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 180
             for (let index3 = 0; index3 <= Timer / 5 - 2; index3++) {
@@ -83,13 +83,14 @@ basic.forever(function () {
             basic.showString("Times Up")
         } else if (Dice_Role == 3) {
             Dice_rolled = false
-            basic.showString("Safe storage")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 300
             for (let index5 = 0; index5 <= Timer / 5 - 2; index5++) {
@@ -108,13 +109,14 @@ basic.forever(function () {
             basic.showString("Times Up")
         } else if (Dice_Role == 4) {
             Dice_rolled = false
-            basic.showString("Tower")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 240
             for (let index7 = 0; index7 <= Timer / 5 - 2; index7++) {
@@ -133,12 +135,14 @@ basic.forever(function () {
             basic.showString("Times Up")
         } else if (Dice_Role == 5) {
             Dice_rolled = false
-            basic.showString("Wine count")
+            Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 240
             for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
@@ -157,13 +161,14 @@ basic.forever(function () {
             basic.showString("Times Up")
         } else if (Dice_Role == 6) {
             Dice_rolled = false
-            basic.showString("colored objects")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 120
             for (let index11 = 0; index11 <= Timer / 5 - 2; index11++) {
@@ -180,9 +185,10 @@ basic.forever(function () {
             }
             basic.clearScreen()
             basic.showString("Times Up")
-        } else if (Dice_Role == 7) {
+        } else if (Dice_Role == 99) {
             // Quiz answering done
             Dice_rolled = false
+            // 
             basic.showString("Quiz time!")
             Quiz_answered = false
             while (!(Quiz_answered)) {
@@ -222,13 +228,14 @@ basic.forever(function () {
             basic.showNumber(Score)
         } else if (Dice_Role == 7) {
             Dice_rolled = false
-            basic.showString("Apples")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
+            basic.pause(100)
             Tone = 130
             Timer = 180
             for (let index9 = 0; index9 <= Timer / 5 - 2; index9++) {
@@ -247,13 +254,13 @@ basic.forever(function () {
             basic.showString("Times Up")
         } else if (Dice_Role == 8) {
             Dice_rolled = false
-            basic.showString("Random sentence")
             Quiz_answered = false
             while (!(Quiz_answered)) {
                 if (input.buttonIsPressed(Button.B)) {
                     Quiz_answered = true
                 }
             }
+            basic.clearScreen()
         }
     }
 })
