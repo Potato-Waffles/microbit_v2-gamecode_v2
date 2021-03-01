@@ -5,7 +5,8 @@ input.onButtonPressed(Button.AB, function () {
     soundExpression.giggle.play()
     basic.showIcon(IconNames.Heart)
     basic.pause(500)
-    Dice_Role = randint(1, 5)
+    Dice_Role = randint(1, 8)
+    Dice_Role = randint(1, 8)
     Dice_rolled = true
     basic.showNumber(Dice_Role)
     basic.pause(1000)
